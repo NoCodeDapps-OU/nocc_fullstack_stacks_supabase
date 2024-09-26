@@ -85,46 +85,16 @@ def validate_clarity_tests(tests: str) -> str:
     return validation_result
 
 def setup_project_structure(project_name: str) -> str:
-    try:
-        project_dir = os.path.join(os.getcwd(), project_name)
-        os.makedirs(project_dir, exist_ok=True)
-        os.makedirs(os.path.join(project_dir, "contracts"), exist_ok=True)
-        os.makedirs(os.path.join(project_dir, "tests"), exist_ok=True)
-        os.makedirs(os.path.join(project_dir, "frontend"), exist_ok=True)
-        os.makedirs(os.path.join(project_dir, "logs"), exist_ok=True)
-        
-        result = f"Project structure for '{project_name}' set up successfully in {project_dir}."
-        log_step("Set Up Project Structure", result)
-        return result
-    except Exception as e:
-        error = f"Error setting up project structure: {str(e)}"
-        log_step("Set Up Project Structure Error", error)
-        return error
+    result = f"Project structure for '{project_name}' set up (simulated)."
+    log_step("Set Up Project Structure", result)
+    return result
 
 def save_contract(project_name: str, contract: str) -> str:
-    try:
-        os.makedirs(os.path.join(project_name, "contracts"), exist_ok=True)
-        contract_path = os.path.join(project_name, "contracts", "contract.clar")
-        with open(contract_path, "w") as f:
-            f.write(contract)
-        result = f"Contract saved successfully to {contract_path}"
-        log_step("Saved Contract", result)
-        return result
-    except Exception as e:
-        error = f"Error saving contract: {str(e)}"
-        log_step("Save Contract Error", error)
-        return error
+    result = f"Contract generated for {project_name}:\n\n{contract}"
+    log_step("Generated Contract", result)
+    return result
 
 def save_tests(project_name: str, tests: str) -> str:
-    try:
-        os.makedirs(os.path.join(project_name, "tests"), exist_ok=True)
-        tests_path = os.path.join(project_name, "tests", "contract_test.ts")
-        with open(tests_path, "w") as f:
-            f.write(tests)
-        result = f"Tests saved successfully to {tests_path}"
-        log_step("Saved Tests", result)
-        return result
-    except Exception as e:
-        error = f"Error saving tests: {str(e)}"
-        log_step("Save Tests Error", error)
-        return error
+    result = f"Tests generated for {project_name}:\n\n{tests}"
+    log_step("Generated Tests", result)
+    return result

@@ -41,15 +41,6 @@ def generate_backend_code(project_details: dict, supabase_setup: str) -> str:
     return backend_code
 
 def save_backend_code(project_name: str, backend_code: str) -> str:
-    try:
-        os.makedirs(os.path.join(project_name, "backend"), exist_ok=True)
-        backend_path = os.path.join(project_name, "backend", "supabase.js")
-        with open(backend_path, "w") as f:
-            f.write(backend_code)
-        result = f"Backend code saved successfully to {backend_path}"
-        log_step("Saved Backend Code", result)
-        return result
-    except Exception as e:
-        error = f"Error saving backend code: {str(e)}"
-        log_step("Save Backend Code Error", error)
-        return error
+    result = f"Backend code generated for {project_name}:\n\n{backend_code}"
+    log_step("Generated Backend Code", result)
+    return result

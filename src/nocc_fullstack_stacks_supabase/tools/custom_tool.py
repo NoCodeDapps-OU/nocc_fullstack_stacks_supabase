@@ -31,7 +31,8 @@ setup_project_tool = Tool(
     func=setup_project
 )
 
-def generate_contract(requirements: str) -> str:
+def generate_contract(args):
+    requirements = args.get('requirements', '')
     return generate_clarity_contract(requirements)
 
 generate_contract_tool = Tool(
@@ -40,7 +41,8 @@ generate_contract_tool = Tool(
     func=generate_contract
 )
 
-def generate_tests(contract: str) -> str:
+def generate_tests(args):
+    contract = args.get('contract', '')
     return generate_clarity_tests(contract)
 
 generate_tests_tool = Tool(
@@ -80,7 +82,8 @@ finalize_project_tool = Tool(
 )
 
 # Frontend Tools
-def generate_html_css_tool(requirements: str) -> tuple:
+def generate_html_css_tool(args):
+    requirements = args.get('requirements', '')
     return generate_html_css(requirements)
 
 frontend_html_css_tool = Tool(
@@ -126,7 +129,8 @@ save_frontend_tool_instance = Tool(
 )
 
 # Backend Tools
-def setup_supabase_tool(project_details: dict) -> str:
+def setup_supabase_tool(args):
+    project_details = args.get('project_details', {})
     return setup_supabase(project_details)
 
 supabase_setup_tool = Tool(

@@ -145,28 +145,6 @@ def integrate_contract(frontend_code: str, contract: str) -> str:
     return js_content
 
 def save_frontend(project_name: str, html_content: str, css_content: str, js_content: str, stacksjs_content: str) -> str:
-    try:
-        os.makedirs(os.path.join(project_name, "frontend"), exist_ok=True)
-        
-        html_path = os.path.join(project_name, "frontend", "index.html")
-        with open(html_path, "w") as f:
-            f.write(html_content)
-        css_path = os.path.join(project_name, "frontend", "styles.css")
-        with open(css_path, "w") as f:
-            f.write(css_content)
-        
-        js_path = os.path.join(project_name, "frontend", "app.js")
-        with open(js_path, "w") as f:
-            f.write(js_content)
-        
-        stacksjs_path = os.path.join(project_name, "frontend", "stacks-integration.js")
-        with open(stacksjs_path, "w") as f:
-            f.write(stacksjs_content)
-        
-        result = f"Frontend code saved successfully to {project_name}/frontend/"
-        log_step("Saved Frontend", result)
-        return result
-    except Exception as e:
-        error = f"Error saving frontend code: {str(e)}"
-        log_step("Save Frontend Error", error)
-        return error
+    result = f"Frontend code generated for {project_name}:\n\nHTML:\n{html_content}\n\nCSS:\n{css_content}\n\nJavaScript:\n{js_content}\n\nStacks.js:\n{stacksjs_content}"
+    log_step("Generated Frontend", result)
+    return result
