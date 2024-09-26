@@ -1,0 +1,62 @@
+smart_contract_tasks:
+  setup_project:
+    description: "Set up a new Clarity smart contract project structure named '{project_name}'"
+    agent: project_setup_agent
+    expected_output: "A fully initialized project structure for a Clarity smart contract project."
+
+  generate_contract:
+    description: "Generate a Clarity smart contract based on the following requirements: {requirements}"
+    agent: contract_designer
+    expected_output: "A complete Clarity smart contract code that fulfills the user's requirements."
+
+  generate_tests:
+    description: "Generate a comprehensive test suite for the Clarity smart contract: {contract}"
+    agent: contract_tester
+    expected_output: "A set of thorough test cases covering all functions and edge cases of the smart contract."
+
+  validate_contract:
+    description: "Validate the Clarity smart contract: {contract}"
+    agent: contract_validator
+    expected_output: "Validation result for the Clarity smart contract."
+
+  validate_tests:
+    description: "Validate the test suite for the Clarity smart contract: {tests}"
+    agent: test_validator
+    expected_output: "Validation result for the test suite."
+
+  finalize_project:
+    description: "Validate and finalize the Clarity smart contract project. Contract: {contract}, Tests: {tests}"
+    agent: project_finalizer
+    expected_output: "A validated and finalized Clarity smart contract project, ready for deployment."
+
+frontend_tasks:
+  design_frontend:
+    description: "Design and implement the frontend structure using HTML and Tailwind CSS based on the following requirements: {requirements}"
+    agent: frontend_designer
+    expected_output: "Complete HTML structure with Tailwind CSS classes for the frontend."
+
+  implement_javascript:
+    description: "Implement JavaScript functionality for the frontend based on the following HTML structure: {html_structure}"
+    agent: javascript_developer
+    expected_output: "JavaScript code to add interactivity and dynamic behavior to the frontend."
+
+  integrate_stacksjs:
+    description: "Integrate Stacks.js components into the frontend code: {frontend_code}"
+    agent: stacksjs_integrator
+    expected_output: "Updated frontend code with Stacks.js components integrated for blockchain functionality."
+
+  integrate_smart_contract:
+    description: "Integrate the Clarity smart contract with the frontend. Frontend code: {frontend_code}, Contract: {contract}"
+    agent: contract_integrator
+    expected_output: "Frontend code updated with smart contract integration, including function calls and event listeners."
+
+backend_tasks:
+  setup_supabase:
+    description: "Set up a Supabase project and create the necessary database structure for: {project_details}"
+    agent: supabase_integrator
+    expected_output: "Detailed instructions for setting up Supabase project and database structure."
+
+  generate_backend_code:
+    description: "Generate backend code for Supabase integration based on the project details: {project_details} and Supabase setup: {supabase_setup}"
+    agent: supabase_integrator
+    expected_output: "Complete backend code for Supabase integration in JavaScript."
